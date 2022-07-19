@@ -16,8 +16,8 @@ before_script:
 script:
   - docker --version # print the version for logging
   - docker build -t graves001/first_repo .
-  - docker tag simple-node graves001/ci_with_travis:latest
+  - docker tag graves001/first_repo graves001/ci_with_travis:latest
 
 after_success:
   - echo "$\DOCKER_PASSWORD" | docker login -u "$\DOCKER_USERNAME" --password-stdin
-  - docker push graves001/simple-node
+  - docker push graves001/first_repo
